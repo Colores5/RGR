@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+class figure{
+    protected:
+    double x, y;
+    public:
+    figure(){
+        x = 0;
+        y = 0;
+    }
+    figure(double nx, double ny){
+        x = nx;
+        y = ny;
+    }
+    void virtual print(){
+        cout << "(" << x << ", " << y << ")" << endl;
+    }
+    double virtual area()=0;
+    double virtual lenth()=0;
+    
+};
+ class circle : public figure {
+    protected:
+    double r;
+    public:
+    circle(double nx, double ny, double nr){
+        x = nx;
+        y = ny;
+        r = nr;
+    }
+    double area(){
+        return 4*atan(1)*r*r;
+    }
+    double lenth(){
+        return 2*4*atan(1)*r;
+    }
+    void print(){
+        cout << "(" << x << ", " << y << ") r=" << r << endl;
+    }
+
+ };
+ 
+ int main(){
+    figure *p, *p2;
+    circle *c;
+    p = new figure(2, 3);
+    p -> print();
+    p2 = new circle(5, 6, 8);
+    p2->print();
+    cout << endl;
+    cout << p2->area() << " "<< p2->lenth()<< endl;
+    c = new circle(2, 3, 4);
+    c->print();
+    cout << endl;
+    cout << c->area() << " "<< c->lenth()<< endl;
+    delete p, p2, c;
+    return 0;
+ }
