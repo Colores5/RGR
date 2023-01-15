@@ -1,4 +1,4 @@
-﻿#include "Functions.h"
+#include "Functions.h"
 
 int _stateMenu;
 void Menu() {
